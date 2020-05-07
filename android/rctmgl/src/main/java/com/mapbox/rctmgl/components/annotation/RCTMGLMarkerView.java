@@ -49,6 +49,10 @@ public class RCTMGLMarkerView extends AbstractMapFeature implements MarkerView.O
         refresh();
     }
 
+    public void bringToFront() {
+        mMarkerView.getView().bringToFront();
+    }
+
     public void refresh() {
         // this will cause position to be recalculated
         if (mMarkerView != null) {

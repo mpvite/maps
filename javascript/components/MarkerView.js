@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Platform, requireNativeComponent} from 'react-native';
+import {findNodeHandle, Platform, requireNativeComponent, UIManager } from 'react-native';
 
 import {toJSONString, viewPropTypes} from '../utils';
 import {makePoint} from '../utils/geoUtils';
@@ -47,6 +47,16 @@ class MarkerView extends React.PureComponent {
     return toJSONString(makePoint(this.props.coordinate));
   }
 
+  bringToFront() {
+    if (Platform.OS === 'android') {
+      UIManager.dispatchViewManagerCommand(
+        findNodeHandle(this.refs.markerView),
+        'bringToFront',
+        []
+      );
+    }
+  }
+
   render() {
     if (Platform.OS === 'ios') {
       return <PointAnnotation {...this.props} />;
@@ -58,7 +68,7 @@ class MarkerView extends React.PureComponent {
       coordinate: this._getCoordinate(),
     };
     return (
-      <RCTMGLMarkerView {...props}>{this.props.children}</RCTMGLMarkerView>
+      <RCTMGLMarkerView ref="markerView" {...props}>{this.props.children}</RCTMGLMarkerView>
     );
   }
 }

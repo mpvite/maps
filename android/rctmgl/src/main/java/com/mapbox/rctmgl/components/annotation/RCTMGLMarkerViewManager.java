@@ -1,6 +1,7 @@
 package com.mapbox.rctmgl.components.annotation;
 
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.common.MapBuilder;
 import com.facebook.react.uimanager.ThemedReactContext;
@@ -9,6 +10,9 @@ import com.mapbox.rctmgl.components.AbstractEventEmitter;
 import com.mapbox.rctmgl.utils.GeoJSONUtils;
 
 import java.util.Map;
+
+import javax.annotation.Nullable;
+
 
 public class RCTMGLMarkerViewManager extends AbstractEventEmitter<RCTMGLMarkerView> {
     public static final String REACT_CLASS = "RCTMGLMarkerView";
@@ -42,4 +46,13 @@ public class RCTMGLMarkerViewManager extends AbstractEventEmitter<RCTMGLMarkerVi
         return MapBuilder.<String, String>builder()
                 .build();
     }
+
+    @Override
+    public void receiveCommand(final RCTMGLMarkerView root, String commandId, @Nullable ReadableArray args) {
+    switch (commandId) {
+      case "bringToFront":
+        root.bringToFront();
+        break;
+    }
+  }
 }
