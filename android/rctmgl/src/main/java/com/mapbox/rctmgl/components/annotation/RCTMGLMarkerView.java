@@ -50,7 +50,14 @@ public class RCTMGLMarkerView extends AbstractMapFeature implements MarkerView.O
     }
 
     public void bringToFront() {
-        mMarkerView.getView().bringToFront();
+        // this should be the right way to do it, but not working as expected
+        // mMarkerView.getView().bringToFront();
+        // trick to increase elevation, but with not outline
+        mMarkerView.getView().setElevation((float)1);
+        mMarkerView.getView().setOutlineProvider(null);
+        // kitkat compat
+        mMarkerView.getView().requestLayout();
+        mMarkerView.getView().invalidate();
     }
 
     public void refresh() {
