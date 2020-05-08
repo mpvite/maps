@@ -48,18 +48,16 @@ class MarkerView extends React.PureComponent {
   }
 
   bringToFront() {
-    if (Platform.OS === 'android') {
-      UIManager.dispatchViewManagerCommand(
-        findNodeHandle(this.refs.markerView),
-        'bringToFront',
-        []
-      );
-    }
+    UIManager.dispatchViewManagerCommand(
+      findNodeHandle(this.refs.markerView),
+      'bringToFront',
+      []
+    );
   }
 
   render() {
     if (Platform.OS === 'ios') {
-      return <PointAnnotation {...this.props} />;
+      return <PointAnnotation ref="markerView" {...this.props} />;
     }
 
     const props = {

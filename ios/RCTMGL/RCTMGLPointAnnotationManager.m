@@ -27,6 +27,13 @@ RCT_REMAP_VIEW_PROPERTY(onMapboxPointAnnotationDeselected, onDeselected, RCTBubb
 RCT_REMAP_VIEW_PROPERTY(onMapboxPointAnnotationDragStart, onDragStart, RCTBubblingEventBlock)
 RCT_REMAP_VIEW_PROPERTY(onMapboxPointAnnotationDragEnd, onDragEnd, RCTBubblingEventBlock)
 
+RCT_EXPORT_METHOD(bringToFront:(nonnull NSNumber *)reactTag) {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    RCTMGLPointAnnotation *component = (RCTMGLPointAnnotation *)[self.bridge.uiManager viewForReactTag:reactTag];
+    [component bringToFront];
+  });
+}
+
 - (UIView *)view
 {
     return [[RCTMGLPointAnnotation alloc] init];

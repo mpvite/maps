@@ -36,5 +36,6 @@
 @property (nonatomic, assign) BOOL reactDraggable;
 
 - (MGLAnnotationView *)getAnnotationView;
+- (void)bringToFront;
 
 @end
