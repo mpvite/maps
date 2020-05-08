@@ -5,6 +5,7 @@
 //  Created by Nick Italiano on 10/12/17.
 //  Copyright © 2017 Mapbox Inc. All rights reserved.
 //
+#import <React/RCTUIManager.h>
 
 #import "RCTMGLPointAnnotationManager.h"
 #import "RCTMGLPointAnnotation.h"
