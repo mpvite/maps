@@ -3,6 +3,7 @@ package com.mapbox.rctmgl.components.camera;
 import com.mapbox.geojson.FeatureCollection;
 import com.facebook.common.logging.FLog;
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReadableArray;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.uimanager.ThemedReactContext;
 import com.facebook.react.uimanager.annotations.ReactProp;
@@ -11,6 +12,9 @@ import com.mapbox.rctmgl.utils.GeoJSONUtils;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.annotation.Nullable;
+
 
 public class RCTMGLCameraManager extends AbstractEventEmitter<RCTMGLCamera> {
     public static final String REACT_CLASS = "RCTMGLCamera";
@@ -97,5 +101,14 @@ public class RCTMGLCameraManager extends AbstractEventEmitter<RCTMGLCamera> {
     public void setFollowPitch(RCTMGLCamera camera, double value) {
         camera.setFollowPitch(value);
     }
+
+    @Override
+    public void receiveCommand(final RCTMGLCamera root, String commandId, @Nullable ReadableArray args) {
+    switch (commandId) {
+      case "stopAnimation":
+        root.stopAnimation();
+        break;
+    }
+  }
 
 }

@@ -280,6 +280,14 @@ class Camera extends React.Component {
     );
   }
 
+  stopAnimation() {
+    UIManager.dispatchViewManagerCommand(
+      findNodeHandle(this.refs.camera),
+      'stopAnimation',
+      []
+    );
+  }
+
   /**
    * Map camera transitions to fit provided bounds
    *

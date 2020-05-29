@@ -37,6 +37,13 @@ RCT_EXPORT_VIEW_PROPERTY(onUserTrackingModeChange, RCTBubblingEventBlock)
 
 RCT_EXPORT_VIEW_PROPERTY(defaultStop, NSDictionary)
 
+RCT_EXPORT_METHOD(stopAnimation:(nonnull NSNumber *)reactTag) {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    RCTMGLPointAnnotation *component = (RCTMGLPointAnnotation *)[self.bridge.uiManager viewForReactTag:reactTag];
+    [component stopAnimation];
+  });
+}
+
 #pragma Methods
 
 - (BOOL)requiresMainQueueSetup

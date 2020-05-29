@@ -2,6 +2,7 @@ package com.mapbox.rctmgl.components.camera;
 
 import android.content.Context;
 import android.location.Location;
+import android.util.Log;
 
 import com.mapbox.mapboxsdk.camera.CameraPosition;
 import com.mapbox.mapboxsdk.camera.CameraUpdate;
@@ -523,5 +524,9 @@ public class RCTMGLCamera extends AbstractMapFeature {
         positionProperties.putMap("coords", coords);
         positionProperties.putDouble("timestamp", location.getTime());
         return positionProperties;
+    }
+
+    public void stopAnimation() {
+        Log.d(getClass().getSimpleName() , " stopAnimation");
     }
 }
