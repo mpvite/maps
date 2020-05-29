@@ -35,5 +35,4 @@
 
 @property (nonatomic, copy) RCTBubblingEventBlock onUserTrackingModeChange;
 
-- (void)stopAnimation;
 @end

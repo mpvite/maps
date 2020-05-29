@@ -255,10 +255,4 @@
     }
 }
 
-- (void)stopAnimation {
-    if (_map != nil) {
-        _map.zoomLevel = _map.zoomLevel + 0.01;
-    }
-}
-
 @end
