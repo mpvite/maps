@@ -53,6 +53,9 @@ public class RCTMGLMarkerViewManager extends AbstractEventEmitter<RCTMGLMarkerVi
       case "bringToFront":
         root.bringToFront();
         break;
+      case "bringToBack":
+        root.bringToBack();
+        break;
     }
   }
 }

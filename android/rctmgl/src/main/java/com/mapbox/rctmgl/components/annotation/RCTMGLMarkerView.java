@@ -60,6 +60,15 @@ public class RCTMGLMarkerView extends AbstractMapFeature implements MarkerView.O
         mMarkerView.getView().invalidate();
     }
 
+    public void bringToBack() {
+        // trick to increase elevation, but with not outline
+        mMarkerView.getView().setElevation((float)0);
+        mMarkerView.getView().setOutlineProvider(null);
+        // kitkat compat
+        mMarkerView.getView().requestLayout();
+        mMarkerView.getView().invalidate();
+    }
+
     public void refresh() {
         // this will cause position to be recalculated
         if (mMarkerView != null) {

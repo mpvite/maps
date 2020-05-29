@@ -35,6 +35,13 @@ RCT_EXPORT_METHOD(bringToFront:(nonnull NSNumber *)reactTag) {
   });
 }
 
+RCT_EXPORT_METHOD(bringToBack:(nonnull NSNumber *)reactTag) {
+  dispatch_async(dispatch_get_main_queue(), ^{
+    RCTMGLPointAnnotation *component = (RCTMGLPointAnnotation *)[self.bridge.uiManager viewForReactTag:reactTag];
+    [component bringToBack];
+  });
+}
+
 - (UIView *)view
 {
     return [[RCTMGLPointAnnotation alloc] init];

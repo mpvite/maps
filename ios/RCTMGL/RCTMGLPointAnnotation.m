@@ -148,6 +148,15 @@ const float CENTER_Y_OFFSET_BASE = -0.5f;
     }
 }
 
+- (void)bringToBack {
+    if (_map != nil) {
+        // only handle custom views
+        if (self.reactSubviews.count != 0) {
+            self.layer.zPosition = 0;
+        }
+    }
+}
+
 - (CGFloat)_getZPosition
 {
     double latitudeMax = 90.0;

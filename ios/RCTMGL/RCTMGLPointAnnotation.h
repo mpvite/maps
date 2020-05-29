@@ -37,5 +37,6 @@
 
 - (MGLAnnotationView *)getAnnotationView;
 - (void)bringToFront;
+- (void)bringToBack;
 
 @end
