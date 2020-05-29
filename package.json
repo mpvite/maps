@@ -1,7 +1,7 @@
 {
   "name": "@mpvite/maps",
   "description": "A Mapbox GL react native module for creating custom maps",
-  "version": "8.1.4",
+  "version": "8.1.5",
   "publishConfig": {
     "access": "public"
   },
